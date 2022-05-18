@@ -24,3 +24,132 @@ In web development, 'client side' refers to everything in a web application that
 
   **SERVER-SIDE (BACK-END)
   Much like with client side, 'server side' means everything that happens on the server, instead of on the client. In the past, nearly all business logic ran on the server side, and this included rendering dynamic webpages, interacting with databases, identity authentication, and push notifications.
+
+     **STEP 2 (IMPLEMETATION PHASE)**
+     
+     UPDATE UBUNTU 
+     
+        sudo apt update
+     UPGARDE UBUNTU
+     
+        sudo apt upgarde
+        
+     Lets get the location of Node.js software from ubuntu repositories
+     
+        curl -SL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+        
+        **INSTALL Node.js on the server**
+        
+              sudo apt-get install -y nodejs
+              
+          lets  check the version
+          
+          node -v 
+          
+        you also need to install the node npm packages 
+        
+         sudo apt install npm
+         
+         ** APPLICATION CODE SETUP **
+         
+         1ST CREATE A DIRECTORY
+            mkdir Todo
+          go in the directory
+          
+          cd Todo
+          then after download the npm paakages by initialization
+          
+          npm init
+          after this hit enter=== 3x when u get to description give ur description, then enter 5x, once u get to keywords give todo Application 
+          author ===izzy 
+          After this is goin to ask u to type yes 
+          
+          then do ls to check for the package created 
+            
+             package.json 
+     ________________________________________________________________________________________
+     
+     ## STEP 3##
+     
+     INSTALLING ExpressJS
+     
+      IT IS THE MIDDLE LAYER OR ALSO THE APPLICATION LAYER. IT HELPS TO DEFINE ROUTES OF YOUR APPLICATION BASED ON HTTP METHODS AND URLS
+      
+      TO USE Express install it with npm;
+      
+          $ npm install express
+          
+       Now create a file index.js with the command below
+       
+          $ touch index.js
+        
+      Run ls to confirm that your index.js file was created 
+      
+        set the environment 
+        
+        $ npm install dotenv
+        
+        after this go into the file index.js 
+        
+       $ vim index.js   ( copy the code amd save it)
+       
+            const express = require('express');
+require('dotenv').config();
+
+const app = express();
+
+const port = process.env.PORT || 5000;
+
+app.use((req, res, next) => {
+res.header("Access-Control-Allow-Origin", "\*");
+res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+next();
+});
+
+app.use((req, res, next) => {
+res.send('Welcome to Express');
+});
+
+app.listen(port, () => {
+console.log(`Server running on port ${port}`)
+});
+    
+    
+  now we need to start our server 
+  
+  Notice that we have specified to use port 5000 in the code. we will need this when we opening our browser
+  
+  $ node index.js   (this is going to start our server)
+  copy ur public_ip:5000    Then you should be able to see your web application 
+  
+  
+          
+          
+          
+          
+         
+         
+        
+        
+        
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
